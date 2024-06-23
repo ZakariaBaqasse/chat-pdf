@@ -4,9 +4,9 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: ".env" });
 
 export default {
-  driver: "pg",
+  dialect: "postgresql",
   schema: "./src/lib/db/schema.ts",
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL!,
+    url: process.env.DATABASE_URL!,
   },
 } satisfies Config;
