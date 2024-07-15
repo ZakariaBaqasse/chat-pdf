@@ -25,7 +25,7 @@ export async function loadS3FileToPinecone(fileKey: string) {
 
     const documents = await splitter.splitDocuments(pages);
     //3. vectorize and load to pinecone documents
-    await saveToVectorStore(documents);
+    await saveToVectorStore(documents, fileKey);
   } catch (error) {
     console.error(error);
   }

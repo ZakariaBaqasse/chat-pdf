@@ -1,4 +1,4 @@
-import { chats } from "@/lib/db/schema";
+import { chats, messages } from "@/lib/db/schema";
 import { InferSelectModel } from "drizzle-orm";
 
 export type Chat = InferSelectModel<typeof chats>;
@@ -10,3 +10,5 @@ export type GroupedChats = {
   lastMonth: Chat[];
   [key: string]: Chat[];
 };
+
+export type ChatMessage = InferSelectModel<typeof messages>;

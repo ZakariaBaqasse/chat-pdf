@@ -1,3 +1,4 @@
+import ChatComponent from "@/components/ChatComponent";
 import PDFViewer from "@/components/PDFViewer";
 import Sidebar from "@/components/Sidebar";
 
@@ -28,12 +29,17 @@ const ChatPage = async ({ params: { chatId } }: Props) => {
         <Sidebar currentChatId={Number(chatId?.[0])} />
       </div>
       {chatId && chatId.length === 1 && !isNaN(Number(chatId[0])) ? (
-        <div className="col-span-3">
-          <PDFViewer chatId={chatId[0]} />
-        </div>
+        <>
+          <div className="col-span-3">
+            <PDFViewer chatId={chatId[0]} />
+          </div>
+          <div className="col-span-2">
+            <ChatComponent chatId={Number(chatId)} />
+          </div>
+        </>
       ) : (
-        <div className="col-span-5 h-screen flex flex-col justify-center items-center">
-          <FileText className="h-8 w-8" />
+        <div className="col-span-5 h-screen text-gray-400 flex flex-col justify-center items-center">
+          <FileText className="h-16 w-16" />
           <h3>Please select a document to get started</h3>
         </div>
       )}
